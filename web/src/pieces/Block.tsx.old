@@ -1,0 +1,206 @@
+import React, { Fragment, useReducer } from "react";
+import * as THREE from "three";
+import { BlockProps } from "../@types/tris-types";
+
+export default function Block({ color, x, y, rotation, shape }: BlockProps) {
+  return (
+    <Fragment>
+      {shape.flatMap((col, colIndex) =>
+        col.map((block, rowIndex) => {
+          if (block) {
+            return (
+              <Fragment key={`${rowIndex},${colIndex}`}>
+                <mesh
+                  position={new THREE.Vector3(x + colIndex, y - rowIndex, 1)}
+                >
+                  <boxBufferGeometry attach="geometry" args={[0.9, 0.9, 0.9]} />
+                  <meshStandardMaterial attach="material" color={color} />
+                </mesh>
+              </Fragment>
+            );
+          } else {
+            return null;
+          }
+        })
+      )}
+    </Fragment>
+  );
+}
+
+export const BlocksData = [
+  {
+    color: "#144A75",
+    shape: [[true]] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#D52053",
+    shape: [[true], [true]] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#068541",
+    shape: [[true], [true], [true]] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#DD701C",
+    shape: [
+      [true, false],
+      [true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#FED524",
+    shape: [[true], [true], [true], [true]] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#03A192",
+    shape: [
+      [false, true],
+      [false, true],
+      [false, true],
+      [true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#04444E",
+    shape: [
+      [true, false],
+      [true, true],
+      [true, false]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#D753C2",
+    shape: [
+      [true, true],
+      [true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#AD5E17",
+    shape: [
+      [true, true, false],
+      [false, true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#1172D6",
+    shape: [[true], [true], [true], [true], [true]] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#A71898",
+    shape: [
+      [false, true],
+      [false, true],
+      [false, true],
+      [true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#8D232C",
+    shape: [
+      [false, true],
+      [false, true],
+      [true, true],
+      [true, false]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#B551E3",
+    shape: [
+      [false, true],
+      [true, true],
+      [true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#038053",
+    shape: [
+      [true, true],
+      [false, true],
+      [true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#5E7CF4",
+    shape: [[true], [true], [true], [true]] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#D52053",
+    shape: [
+      [true, false],
+      [true, true],
+      [true, false],
+      [true, false]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#8CB08E",
+    shape: [
+      [false, true, false],
+      [false, true, false],
+      [true, true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#EB48CB",
+    shape: [
+      [true, false, false],
+      [true, false, false],
+      [true, true, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#59DDB3",
+    shape: [
+      [true, true, false],
+      [false, true, true],
+      [false, false, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#D89CF6",
+    shape: [
+      [true, false, false],
+      [true, true, true],
+      [false, false, true]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#EB9E7B",
+    shape: [
+      [true, false, false],
+      [true, true, true],
+      [false, true, false]
+    ] as boolean[][],
+    value: 0
+  },
+  {
+    color: "#ff3333",
+    shape: [
+      [false, true, false],
+      [true, true, true],
+      [false, true, false]
+    ] as boolean[][],
+    value: 0
+  }
+];

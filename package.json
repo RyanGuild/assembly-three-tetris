@@ -1,0 +1,24 @@
+{
+  "name": "2048tris",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "movefiles": "npx copyfiles web/build/* backend/static",
+    "buildfrontend": "npm run build --prefix web",
+    "deployarc": "cd backend && arc deploy",
+    "build": "npm run buildfrontend && npm run movefiles && npm run deployarc",
+    "init": "npm install -G @architect/architect && npm install --prefix web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanGuild/assembly-three-tetris.git"
+  },
+  "author": "RyanGuild(rdg27@pitt.edu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyanGuild/assembly-three-tetris.git/issues"
+  },
+  "homepage": "https://github.com/RyanGuild/assembly-three-tetris.git#readme",
+  "dependencies": {}
+}

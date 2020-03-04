@@ -1,0 +1,54 @@
+import { BlocksData } from "../pieces/Block";
+import { BlockData, Board } from "../@types/tris-types";
+import TrisWAinstance from "../assembly-api/as-ap";
+
+export function blockWidth(index: number): number {
+  let { shape } = BlocksData[index];
+  return shape.length;
+}
+
+export function blockHeight(index: number): number {
+  let { shape } = BlocksData[index];
+  return shape[0].length;
+}
+
+export function rotateShape(block: BlockData): boolean[][] {
+  let shape = BlocksData[block.index].shape.map(col => [...col]);
+  const n = shape[0].length;
+
+  let res = [] as boolean[][];
+
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (!res[j]) res[j] = [];
+      res[j][i] = shape[n - 1 - i][j];
+    }
+  }
+  return res;
+}
+
+export async function blockColision(
+  block: BlockData,
+  board: Board
+): Promise<boolean> {
+  //@ts-ignore
+  return (await TrisWAinstance).blockColision(block, board) as boolean;
+}
+
+export function mergeBitmap(block: BlockData, board: Board): boolean[][] {
+  let { bitmap } = board;
+  let { x, y, index } = block;
+  let { shape } = BlocksData[index];
+  let X = Math.abs(x);
+  let Y = Math.abs(y);
+  let height = blockHeight(index);
+  let width = blockWidth(index);
+  for (let tx = X; tx < width + X; tx++) {
+    for (let ty = Y; ty < height + Y; ty++) {
+      if (bitmap[tx][ty] === true || shape[tx - X][ty - Y] === true) {
+        bitmap[tx][ty] = true;
+      }
+    }
+  }
+  return bitmap;
+}
