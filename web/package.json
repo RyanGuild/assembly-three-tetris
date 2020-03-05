@@ -27,12 +27,16 @@
     "start": "npm run asbuild:untouched && npm run jsstart",
     "build": "npm run asbuild:optimized && npm run jsbuild",
     "jsstart": "react-scripts start",
-    "jsbuild": "react-scripts build",
+    "jsbuild": "rm -rf build && react-scripts build",
+    "jswatch": "npx nodemon --watch src --watch public --ext ts,tsx,css,json,wasm --exec 'npm run jsbuild'",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "aswatch": "npx nodemon --watch assembly --ext ts,json --exec 'npm run asbuild:no-defs'",
+    "asbuild:no-defs": "asc assembly/index.ts -b public/as-api.wasm -t public/as-api.wat --validate --sourceMap --debug",
     "asbuild:untouched": "asc assembly/index.ts -b public/as-api.wasm -t public/as-api.wat -d src/assembly-api/as-types.d.ts --validate --sourceMap --debug",
-    "asbuild:optimized": "asc assembly/index.ts -b public/as-api.wasm -t public/as-api.wat -d src/assembly-api/as-types.d.ts --validate --sourceMap --optimize",
-    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+    "asbuild:optimized": "asc assembly/index.ts -b public/as-api.wasm -t public/as-api.wat -d src/@types/as-types.d.ts --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "sandboxbuild": "npx concurrently \"npm run aswatch\" \"NODE_ENV=development npm run jswatch\""
   },
   "eslintConfig": {
     "extends": "react-app"

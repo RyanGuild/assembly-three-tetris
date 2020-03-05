@@ -23,7 +23,10 @@ export class Block {
     this.width = BlockShapes[offset];
     this.height = BlockShapes[offset + 1];
     assert(this.width <= 5 && this.width > 0, "block width outside of [1-5]");
-    assert(this.height <= 5 && this.height > 0, "block height is outside of [1-5]");
+    assert(
+      this.height <= 5 && this.height > 0,
+      "block height is outside of [1-5]"
+    );
     this.size = this.width * this.height;
     this.shape = new Int32Array(this.size);
     assert(

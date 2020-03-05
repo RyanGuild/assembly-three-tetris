@@ -1,0 +1,30 @@
+FULL-STACK EXPERIENCE
+
+CherryTree Market, Lafayette College — E-commerce for Farmers Full-stack Developer
+Apr 2019 - Nov 2019
+An e-commerce project that made use of graphql, parse-server, and Ember.js. This project was globally authored and managed with a loose kanban strategy
+As principal engineer my responsibilities included adapting an existing legacy code base, creating internal tools, user experience design, API design, database management, testing, and automated deployment. I was assigned a small team of freelancers under my direct supervision. Management of the project was structured by a Kanban system supplemented by a git-ops deployment strategy. 
+
+Pyrantix LLC, Pittsburgh PA — React and  AWS Full-stack Developer
+Jun 2018 - Nov 2018
+A React app built for Pyrantix LLC that made use of websockets, redux, and hammerJS to build a realtime mobile-first experience
+
+As lead web developer my responsibilities included user experience design, API design, cloud architecture, data modeling, and an understanding of the offerings of AWS. The projects performance requirements dictated that we would need to make use of global deployment systems such as AWS Lambda for edge compute and a content delivery network for both static web delivery and internal data caching.
+EDUCATION
+Carnegie Mellon University, Pittsburgh PA — Summer Classes
+June 2015 -  Aug 2015
+Summer supplementary classes in python programing and studio recording
+University of Pittsburgh, Pittsburgh PA — Computer Science
+Sept 2016 -  PRESENT
+
+SKILLS
+Languages: 
+Node.js, TypeScript, Python, Ruby, Java, Kotlin, Rust, C, C++
+Technologies:
+ React, Vue, Ember, Svelte, babel, GraphQL, Jest, mocha, chai, puppeteer, Websockets, WebAssembly, WebRTC, JVM Streams, Stripe
+Platforms:
+Github(git, open source management, actions) 
+Gitlab(git, CI/CD, environments, GKE integration)
+GCP(Run, Build, Kubernetes, functions)
+AWS(lambda, cloudfront, dynamo, api gateway)
+Docker(compose, swarm)

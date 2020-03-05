@@ -60,4 +60,6 @@ function App() {
   );
 }
 
+const test = 0;
+
 export default App;

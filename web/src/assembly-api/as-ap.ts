@@ -4,7 +4,7 @@ import TrisWA from "./as-types";
 
 let updateNum = 0;
 
-export default instantiateStreaming<typeof TrisWA>(fetch("./as-api.wasm"), {
+export default instantiateStreaming<typeof TrisWA>(fetch("/as-api.wasm"), {
   index: {
     consoleLog(int: number) {
       console.log(int);

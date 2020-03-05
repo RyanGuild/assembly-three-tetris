@@ -1,11 +1,15 @@
 // The entry file of your WebAssembly module.
 /// <reference path="../node_modules/assemblyscript/index.d.ts" />
 
+//test recompile
+
 import { BOARD_HEIGHT, BOARD_WIDTH } from "../src/Constants";
 import { MaxBlockWidth, MaxBlockHeight, BlockDataLength } from "./blocks";
 
 import { Block } from "./blocks";
 import { Board } from "./board";
+
+//export const test = 5;
 
 export declare function consoleLog(message: i32): void;
 

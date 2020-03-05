@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "movefiles": "npx copyfiles web/build/* backend/static",
+    "copyfiles": "rm -rf public && npx copyfiles --all --up 2 \"web/build/**/*\" public",
+    "watchfiles": "npx nodemon --watch web/build --ext js --exec 'npm run copyfiles'",
     "buildfrontend": "npm run build --prefix web",
-    "deployarc": "cd backend && arc deploy",
-    "build": "npm run buildfrontend && npm run movefiles && npm run deployarc",
-    "init": "npm install -G @architect/architect && npm install --prefix web"
+    "watchfrontend": "npm run sandboxbuild --prefix web",
+    "buildbackend": "npx arc deploy",
+    "watchbackend": "npx nodemon --watch src --ext js,arc,arc-config --exec 'npx arc sandbox'",
+    "build": "npm run buildfrontend && npm run copyfiles && npm run buildbackend",
+    "start": "npx concurrently 'npm run watchfrontend' 'npm run watchfiles' 'npm run watchbackend'",
+    "postinstall": "npm install --prefix web"
   },
   "repository": {
     "type": "git",
@@ -20,5 +24,8 @@
     "url": "https://github.com/RyanGuild/assembly-three-tetris.git/issues"
   },
   "homepage": "https://github.com/RyanGuild/assembly-three-tetris.git#readme",
-  "dependencies": {}
+  "dependencies": {
+    "@architect/architect": "^6.2.4"
+  },
+  "devDependencies": {}
 }
